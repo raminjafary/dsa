@@ -1,1 +1,1 @@
-# Algorithms implementation in C
+# Algorithms and data structures implementation in C

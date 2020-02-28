@@ -1,6 +1,16 @@
 {
-  "name": "bubble-sort",
+  "name": "c-algorithms",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "repo": "raminjafary/c-algorithms",
+  "description": "Algorithms and data structures implementation in C",
+  "keywords": [
+    "c/c++",
+    "algorithms",
+    "data-structures"
+  ],
+  "license": "MIT",
+  "src": [
+    "algorithms",
+    "data-structures"
+  ]
 }
