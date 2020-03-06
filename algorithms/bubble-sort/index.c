@@ -47,7 +47,7 @@ int main (int argc, char** argv) {
     scanf("%d", (data + counter));
     counter++;
   }
-    // Time complexity O(n^2) 
+    // Time complexity: Ω(n)	Θ(n^2)	O(n^2)
     // Space complexity O(1)
     bubble_sort(data, arr_size);
     print_arr(data, arr_size);

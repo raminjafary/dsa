@@ -17,7 +17,7 @@ bool is_empty (queue *q);
 int enqueue (queue *q, int item);
 int dequeue (queue *q);
 int peek (queue *q);
-void display (queue *q);
+int display (queue *q);
 
 int main (int argc, char** argv[])
 {
@@ -30,6 +30,8 @@ int main (int argc, char** argv[])
   enqueue(q, 4);
   peek(q);
   display(q);
+  dequeue(q);
+  dequeue(q);
   dequeue(q);
   display(q);
 }
@@ -84,10 +86,16 @@ int peek (queue *q)
   printf("\nthe rear item is %d\n", q->items[q->back]);
 }
 
-void display(queue *q)
+int display(queue *q)
 {
+  if (q->back == -1)
+  {
+    printf("the queue is empty!\n");
+    return 1;
+  }
   printf("\nQueue items are:\n");
   for(int i=q->front; i<=q->back; i++)
       printf("%d\t",q->items[i]);
   printf("\n");
+  return 0;
 }
