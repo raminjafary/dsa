@@ -1,3 +1,4 @@
 .vscode/
-src/*.o
-*.o
+src/*.out
+*.out
+**/*.out
