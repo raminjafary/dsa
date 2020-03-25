@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void insertion_sort(int array[], int size);
-void display_arr (int items[], int size);
+void display_arr(int items[], int size);
 
 int main(int argc, char *argv)
 {
@@ -20,13 +20,13 @@ void insertion_sort(int array[], int size)
   {
     int key = array[i];
     int j;
-    for (j = i - 1; j >=0 && key < array[j]; j--)
+    for (j = i - 1; j >= 0 && key < array[j]; j--)
       array[j + 1] = array[j];
     array[j + 1] = key;
   }
 }
 
-void display_arr (int items[], int size)
+void display_arr(int items[], int size)
 {
   for (int i = 0; i < size; i++)
     printf("%d\t", items[i]);

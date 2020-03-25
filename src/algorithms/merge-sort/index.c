@@ -1,18 +1,18 @@
 #include <stdio.h>
 #include <math.h>
 
-void merge_sort (int arr[], int start, int end);
-void display_arr (int items[], int size);
+void merge_sort(int arr[], int start, int end);
+void display_arr(int items[], int size);
 
-int main (int argc, char * argv[])
+int main(int argc, char *argv[])
 {
   int arr[] = {1, 5, 8, 0, -1};
   int len = sizeof(arr) / sizeof(arr[0]);
-  merge_sort (arr, 0, len - 1);
-  display_arr (arr, len);
+  merge_sort(arr, 0, len - 1);
+  display_arr(arr, len);
 }
 
-void merge (int arr[], int start, int m, int end)
+void merge(int arr[], int start, int m, int end)
 {
   int l = m - start + 1;
   int r = end - m;
@@ -59,8 +59,8 @@ void merge (int arr[], int start, int m, int end)
     kp++;
     lp++;
   }
-  
-    while (rp < r)
+
+  while (rp < r)
   {
     arr[kp] = r_arr[rp];
     kp++;
@@ -69,18 +69,18 @@ void merge (int arr[], int start, int m, int end)
 }
 // Time Complexity: Ω(n log(n))	Θ(n log(n))	O(n log(n))
 // Space complexity: O(n)
-void merge_sort (int arr[], int start, int end)
+void merge_sort(int arr[], int start, int end)
 {
   if (start < end)
   {
     int m = round((start + end) / 2);
-    merge_sort (arr, start, m);
-    merge_sort (arr, m + 1, end);
+    merge_sort(arr, start, m);
+    merge_sort(arr, m + 1, end);
     merge(arr, start, m, end);
   }
 }
 
-void display_arr (int items[], int size)
+void display_arr(int items[], int size)
 {
   for (int i = 0; i < size; i++)
   {

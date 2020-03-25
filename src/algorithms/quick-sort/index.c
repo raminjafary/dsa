@@ -3,17 +3,17 @@
 void quick_sort(int items[], int low_bound, int high_bound);
 void display_arr(int array[], int size);
 
-int main(int argc, char ** argv[])
+int main(int argc, char **argv[])
 {
   int array[] = {1, 5, -1, 0};
   int size = sizeof(array) / sizeof(array[0]);
 
   quick_sort(array, 0, size - 1);
   display_arr(array, size);
-
 }
 
-void swap (int* a, int* b) {
+void swap(int *a, int *b)
+{
   int temp = *a;
   *a = *b;
   *b = temp;
@@ -48,7 +48,7 @@ void quick_sort(int array[], int low_bound, int high_bound)
   }
 }
 
-void display_arr (int array[], int size)
+void display_arr(int array[], int size)
 {
   for (int i = 0; i < size; i++)
     printf("%d\t", array[i]);

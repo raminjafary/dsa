@@ -2,12 +2,12 @@
 
 static int size = 0;
 
-void peek (int array[], int size);
-void print_arr (int array[], int size);
-void insert (int array[], int item);
+void peek(int array[], int size);
+void print_arr(int array[], int size);
+void insert(int array[], int item);
 void delete (int array[], int item);
 
-void main (int argc, char * argv[])
+void main(int argc, char *argv[])
 {
   int array[size];
 
@@ -21,11 +21,11 @@ void main (int argc, char * argv[])
 
   peek(array, size);
 
-  delete(array, 4);
+  delete (array, 4);
   print_arr(array, size);
 }
 
-void peek (int array[], int size)
+void peek(int array[], int size)
 {
   int lg = array[0];
   for (int i = 0; i < size; i++)
@@ -33,27 +33,27 @@ void peek (int array[], int size)
     if (lg < array[i])
       lg = array[i];
   }
-    printf("peek -> %d\n", lg);
+  printf("peek -> %d\n", lg);
 
   // or simply
   // printf("peek -> %d\n", array[0]);
 }
 
-void print_arr (int array[], int size)
+void print_arr(int array[], int size)
 {
   for (int i = 0; i < size; i++)
     printf("%d\t ", array[i]);
   printf("\n");
 }
 
-void swap (int *a, int *b)
+void swap(int *a, int *b)
 {
   int temp = *a;
   *a = *b;
   *b = temp;
 }
 
-void make_heap (int array[], int size, int el)
+void make_heap(int array[], int size, int el)
 {
   int largest = el;
   int left = 2 * el + 1;
@@ -72,19 +72,19 @@ void make_heap (int array[], int size, int el)
   }
 }
 
-void insert (int array[], int item)
+void insert(int array[], int item)
 {
   if (size == 0)
   {
     array[0] = item;
-    size +=1;
+    size += 1;
   }
   else
   {
     array[size] = item;
     size++;
 
-    for (int i = size / 2 - 1; i >=0; i--)
+    for (int i = size / 2 - 1; i >= 0; i--)
       make_heap(array, size, i);
   }
 }

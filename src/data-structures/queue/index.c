@@ -5,21 +5,22 @@
 
 #define SIZE 3
 
-typedef struct queue {
+typedef struct queue
+{
   int items[SIZE];
   int front;
   int back;
 } queue;
 
 void create_queue(queue *q);
-bool is_full (queue *q);
-bool is_empty (queue *q);
-int enqueue (queue *q, int item);
-int dequeue (queue *q);
-int peek (queue *q);
-int display (queue *q);
+bool is_full(queue *q);
+bool is_empty(queue *q);
+int enqueue(queue *q, int item);
+int dequeue(queue *q);
+int peek(queue *q);
+int display(queue *q);
 
-int main (int argc, char** argv[])
+int main(int argc, char **argv[])
 {
   queue *q = malloc(sizeof(queue));
 
@@ -36,13 +37,13 @@ int main (int argc, char** argv[])
   display(q);
 }
 
-void create_queue (queue *q)
+void create_queue(queue *q)
 {
   q->front = -1;
   q->back = -1;
 }
 
-int enqueue (queue *q, int item) 
+int enqueue(queue *q, int item)
 {
   if (is_full(q))
   {
@@ -59,7 +60,7 @@ int enqueue (queue *q, int item)
   return 0;
 }
 
-int dequeue (queue *q)
+int dequeue(queue *q)
 {
   if (is_empty(q))
   {
@@ -71,17 +72,17 @@ int dequeue (queue *q)
   return 0;
 }
 
-bool is_empty (queue *q) 
+bool is_empty(queue *q)
 {
-  return q->front == - 1;
+  return q->front == -1;
 }
 
-bool is_full (queue *q)
+bool is_full(queue *q)
 {
   return q->back == SIZE - 1;
 }
 
-int peek (queue *q)
+int peek(queue *q)
 {
   printf("\nthe rear item is %d\n", q->items[q->back]);
 }
@@ -94,8 +95,8 @@ int display(queue *q)
     return 1;
   }
   printf("\nQueue items are:\n");
-  for(int i=q->front; i<=q->back; i++)
-      printf("%d\t",q->items[i]);
+  for (int i = q->front; i <= q->back; i++)
+    printf("%d\t", q->items[i]);
   printf("\n");
   return 0;
 }

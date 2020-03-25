@@ -46,7 +46,7 @@ void insert_at_tail(node *head_address, int n)
   node *new_node = malloc(sizeof(node));
   node *temp = head_address;
 
-  while(temp->next != NULL)
+  while (temp->next != NULL)
     temp = temp->next;
 
   new_node->data = n;
@@ -82,7 +82,7 @@ void remove_tail(node *head_address)
   node *temp = head_address;
   while (temp->next->next != NULL)
     temp = temp->next;
-  
+
   temp->next = NULL;
 }
 
