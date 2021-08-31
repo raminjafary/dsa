@@ -1,1 +1,2 @@
-# Algorithms and data structures in C
+# Data structures and Algorithms in multiple languages
+> Personal Study
