@@ -4,3 +4,9 @@ src/*.o
 src/*.out
 *.out
 **/*.out
+
+# Added by cargo
+
+rust/a/target
+rust/ds/target
+Cargo.lock
