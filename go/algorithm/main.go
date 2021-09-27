@@ -12,10 +12,10 @@ func main() {
 }
 
 func bubbleSort() {
-	vec := []int{1, 8, 6, 0, 2, 4, 7, -1, 10}
+	items := []int{1, 8, 6, 0, 2, 4, 7, -1, 10}
 
-	bubble_sort.Sort(&vec)
-	fmt.Printf("bubble sort %v\n", vec)
+	bubble_sort.Sort(items)
+	fmt.Printf("bubble sort %v\n", items)
 }
 
 func insertionSort() {
