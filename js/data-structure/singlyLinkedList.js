@@ -145,13 +145,4 @@ class SinglyLinkedList {
   }
 }
 
-exports = SinglyLinkedList;
-
-const doublyLinkedList = new SinglyLinkedList();
-doublyLinkedList.push("A");
-doublyLinkedList.push("B");
-doublyLinkedList.push("C");
-doublyLinkedList.unshift("D");
-console.log(doublyLinkedList.remove(1));
-console.log();
-console.log(doublyLinkedList);
+module.exports = SinglyLinkedList;

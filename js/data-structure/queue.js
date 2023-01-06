@@ -1,27 +1,23 @@
-function Queue() {
-  this.queue = [];
+const SinglyLinkedList = require("./singlyLinkedList");
+
+class Queue {
+  constructor() {
+    this.queue = new SinglyLinkedList();
+  }
+
+  enqueue(value) {
+    this.queue.push(value);
+  }
+
+  dequeue() {
+    return this.queue.shift();
+  }
+
+  isEmpty() {
+    return this.queue.length === 0;
+  }
+
+  peek() {
+    return this.queue.head;
+  }
 }
-
-Queue.prototype.enqueue = function (value) {
-  this.queue.push(value);
-};
-
-Queue.prototype.dequeue = function () {
-  return this.queue.shift();
-};
-
-Queue.prototype.peek = function () {
-  if (this.isEmpty()) return false;
-  return this.queue[0];
-};
-
-Queue.prototype.isEmpty = function () {
-  return !this.queue.length;
-};
-
-const q = new Queue();
-q.enqueue(5);
-q.enqueue(56);
-q.enqueue(59);
-q.dequeue();
-console.log(q.peek());
