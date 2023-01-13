@@ -1,6 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -152,12 +149,3 @@ class DoublyLinkedList {
     this.length++;
   }
 }
-
-const doublyLinkedList = new DoublyLinkedList();
-doublyLinkedList.push("A");
-doublyLinkedList.push("B");
-doublyLinkedList.push("C");
-doublyLinkedList.unshift("D");
-console.log(doublyLinkedList.insert(1, "F"));
-console.log();
-console.log(doublyLinkedList);

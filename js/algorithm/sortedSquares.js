@@ -8,12 +8,14 @@ function sortedSquares(array) {
   let i = 0;
   const items = [];
 
+  items.sort((a, b) => a - b)
+
   while (i < array.length) {
     items.push(array[i] * array[i]);
     i++;
   }
 
-  return items.sort((a, b) => a - b);
+  return items;
 }
 
 function sortedSquares(array) {
@@ -33,6 +35,6 @@ function sortedSquares(array) {
   return items;
 }
 
-console.log(sortedSquares([-4, -1, 0, 3, 10]));
+console.log(sortedSquares([-4, -1, 0, 3, 10, -5]));
 let i = 2;
 console.log(--i);
