@@ -1,20 +1,25 @@
-function maximumSumOfSubArray(n, arr) {
+// Maximum Sum Subarray of Size n
+
+// Given an array of positive numbers and a positive number ‘n’, find the maximum sum of any contiguous subarray of size ‘n’.
+// Input: [2, 1, 5, 1, 3, 2], n=3
+// Output: 9
+// Explanation: Subarray with maximum sum is [5, 1, 3].
+
+function maximumSumOfSubArrays(n, arr) {
   let windowStart = 0;
   let windowSum = 0;
   let sumOfMaxArry = 0;
 
-  for (let i = 0; i < arr.length; i++) {
-    windowSum += arr[i];
+  for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+    windowSum += arr[windowEnd];
 
-    if (i >= n - 1) {
+    if (windowEnd >= n - 1) {
       sumOfMaxArry = Math.max(windowSum, sumOfMaxArry);
-
       windowSum -= arr[windowStart];
       windowStart += 1;
     }
   }
-
   return sumOfMaxArry;
 }
 
-console.log(maximumSumOfSubArray(3, [2, 1, 5, 1, 3, 2])); // Output: 9 , maximum sum is [5, 1, 3].
+console.log(maximumSumOfSubArrays(3, [2, 1, 5, 1, 3, 2]));
