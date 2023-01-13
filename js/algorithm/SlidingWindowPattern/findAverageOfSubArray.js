@@ -1,27 +1,16 @@
-function findAverageOfSubArray(n, arr) {
-  const result = [];
+// Given an array, find the average of all contiguous subarrays of size ‘n’ in it.
+// Input: Array: [1, 3, 2, 6, -1, 4, 1, 8, 2], n=5
+// Output: [2.2, 2.8, 2.4, 3.6, 2.8]
 
-  for (let i = 0; i < arr.length - n + 1; i++) {
-    let sum = 0;
-
-    for (let j = i; j < i + n; j++) {
-      sum += arr[j];
-    }
-    result.push(sum / n);
-  }
-
-  return result;
-}
-
-function optimizedFindAverageOfSubArray(n, arr) {
-  const result = [];
-  let windowStart = 0;
+function findAverageOfSubArrays(n, arr) {
   let sum = 0;
+  let windowStart = 0;
+  const result = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
+  for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+    sum += arr[windowEnd];
 
-    if (i >= n - 1) {
+    if (windowEnd >= n - 1) {
       result.push(sum / n);
       sum -= arr[windowStart];
       windowStart += 1;
@@ -31,5 +20,4 @@ function optimizedFindAverageOfSubArray(n, arr) {
   return result;
 }
 
-console.log(findAverageOfSubArray(5, [1, 3, 2, 6, -1, 4, 1, 8, 2])); // Output: [2.2, 2.8, 2.4, 3.6, 2.8]
-console.log(optimizedFindAverageOfSubArray(5, [1, 3, 2, 6, -1, 4, 1, 8, 2])); // Output: [2.2, 2.8, 2.4, 3.6, 2.8]
+console.log(findAverageOfSubArrays(5, [1, 3, 2, 6, -1, 4, 1, 8, 2]));
