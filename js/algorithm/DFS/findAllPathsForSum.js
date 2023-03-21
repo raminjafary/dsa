@@ -3,7 +3,7 @@
 // Given a binary tree and a number ‘S’, find all paths from root-to-leaf such that
 // the sum of all the node values of each path equals ‘S’.
 
-const { TreeNode } = require("./tree");
+const { TreeNode } = require("../../data-structure/tree");
 
 function _findSumOfAllPaths(root, n, currentPath, paths) {
   if (!root) {
