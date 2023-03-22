@@ -1,9 +1,9 @@
 class TreeNode {
-  constructor(value, left = null, right = null) {
+  constructor(value, left = null, right = null, next = null) {
     this.value = value;
     this.right = right;
     this.left = left;
-    this.next = null
+    this.next = next;
   }
 }
 
