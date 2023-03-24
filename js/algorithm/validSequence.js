@@ -1,19 +1,3 @@
-// array = [3, 1, 7, 5, 10, 2];
-// sequence = [5, 1, 2];
-
-function findValidSequence(array, sequence) {
-  let i = 0;
-
-  while (i < sequence.length) {
-    if (array.includes(sequence[i])) {
-      array.splice(i, 1);
-    }
-    i++;
-  }
-
-  return JSON.stringify(array) === JSON.stringify(sequence);
-}
-
 function findValidSequence2(array, sequence) {
   let index = 0;
   const items = [];
