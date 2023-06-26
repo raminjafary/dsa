@@ -80,6 +80,8 @@ class MinHeap {
   }
 }
 
+module.exports = MinHeap;
+
 const minHeap = new MinHeap();
 minHeap.insert(5);
 minHeap.insert(45);
