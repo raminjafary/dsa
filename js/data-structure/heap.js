@@ -100,6 +100,10 @@ class MinHeap {
     this.data[indexTwo] = temp;
   }
 
+  peek() {
+    return this.data[0];
+  }
+
   heapifyDown(index) {
     const leftIndex = this.leftChildIndex(index);
     const rightIndex = this.rightChildIndex(index);
