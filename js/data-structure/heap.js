@@ -128,17 +128,18 @@ class MinHeap {
   }
 
   nonRecursiveHeapifyDown(index) {
-    const condition = this.comparator
-      ? this.comparator(
-          this.rightChildValue(index),
-          this.leftChildValue(index)
-        ) < 0
-      : this.rightChildValue(index) < this.leftChildValue(index);
+    const condition = (index) =>
+      this.comparator
+        ? this.comparator(
+            this.rightChildValue(index),
+            this.leftChildValue(index)
+          ) < 0
+        : this.rightChildValue(index) < this.leftChildValue(index);
 
     while (this.hasLeftChild(index)) {
       let smallerChildIndex = this.leftChildIndex(index);
 
-      if (this.hasRightChild(index) && condition) {
+      if (this.hasRightChild(index) && condition(index)) {
         smallerChildIndex = this.rightChildIndex(index);
       }
 
@@ -152,11 +153,12 @@ class MinHeap {
   }
 
   nonRecursiveHeapifyUp(index) {
-    const condition = this.comparator
-      ? this.comparator(this.parentValue(index), this.data[index]) < 0
-      : this.parentValue(index) > this.data[index];
+    const condition = (index) =>
+      this.comparator
+        ? this.comparator(this.parentValue(index), this.data[index]) < 0
+        : this.parentValue(index) > this.data[index];
 
-    while (this.hasParent(index) && condition) {
+    while (this.hasParent(index) && condition(index)) {
       this.swap(this.parentIndex(index), index);
       index = this.parentIndex(index);
     }
