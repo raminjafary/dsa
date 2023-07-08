@@ -1,7 +1,8 @@
 class MinHeap {
-  constructor() {
+  constructor(comparator) {
     this.length = 0;
     this.data = [];
+    this.comparator = comparator;
   }
 
   insert(value) {
@@ -127,13 +128,17 @@ class MinHeap {
   }
 
   nonRecursiveHeapifyDown(index) {
+    const condition = this.comparator
+      ? this.comparator(
+          this.rightChildValue(index),
+          this.leftChildValue(index)
+        ) < 0
+      : this.rightChildValue(index) < this.leftChildValue(index);
+
     while (this.hasLeftChild(index)) {
       let smallerChildIndex = this.leftChildIndex(index);
 
-      if (
-        this.hasRightChild(index) &&
-        this.rightChildValue(index) < this.leftChildValue(index)
-      ) {
+      if (this.hasRightChild(index) && condition) {
         smallerChildIndex = this.rightChildIndex(index);
       }
 
@@ -147,10 +152,11 @@ class MinHeap {
   }
 
   nonRecursiveHeapifyUp(index) {
-    while (
-      this.hasParent(index) &&
-      this.parentValue(index) > this.data[index]
-    ) {
+    const condition = this.comparator
+      ? this.comparator(this.parentValue(index), this.data[index]) < 0
+      : this.parentValue(index) > this.data[index];
+
+    while (this.hasParent(index) && condition) {
       this.swap(this.parentIndex(index), index);
       index = this.parentIndex(index);
     }
@@ -172,15 +178,3 @@ class MinHeap {
 }
 
 module.exports = MinHeap;
-
-const minHeap = new MinHeap();
-minHeap.insert(10);
-minHeap.insert(15);
-minHeap.insert(30);
-minHeap.insert(40);
-minHeap.insert(50);
-minHeap.insert(100);
-minHeap.insert(40);
-minHeap.delete();
-// minHeap.delete()
-console.log(minHeap);
