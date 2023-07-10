@@ -39,8 +39,64 @@ function findKthSmallestNumberInSortedMatrix(matrix, k) {
   return number;
 }
 
+function findKthSmallestNumberInSortedMatrixWithBinarySearch(matrix, k) {
+  const n = matrix.length;
+  let start = matrix[0][0];
+  let end = matrix[n - 1][n - 1];
+
+  while (start < end) {
+    const mid = Math.floor(start + (end - start) / 2);
+
+    const [count, smaller, larger] = countLessEqual(
+      matrix,
+      mid,
+      matrix[0][0],
+      matrix[n - 1][n - 1]
+    );
+
+    if (count === k) return smaller;
+
+    if (count < k) {
+      start = larger;
+    } else {
+      end = smaller;
+    }
+  }
+}
+
+function countLessEqual(matrix, mid, smaller, larger) {
+  let count = 0;
+  let n = matrix.length;
+  let row = n - 1;
+  let col = 0;
+
+  while (row >= 0 && col < n) {
+    if (matrix[row][col] > mid) {
+      larger = Math.min(larger, matrix[row][col]);
+      row -= 1;
+    } else {
+      smaller = Math.max(smaller, matrix[row][col]);
+      count += row + 1;
+      col += 1;
+    }
+  }
+
+  return [count, smaller, larger];
+}
+
 console.log(
   findKthSmallestNumberInSortedMatrix(
+    [
+      [2, 6, 8],
+      [3, 7, 10],
+      [5, 8, 11],
+    ],
+    5
+  )
+);
+
+console.log(
+  findKthSmallestNumberInSortedMatrixWithBinarySearch(
     [
       [2, 6, 8],
       [3, 7, 10],
